@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_MINING_SP2_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="MINING" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LocId"/>
+                </Key>
+                <Property Name="LocId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Location ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LocDes" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Location Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinRes" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="MIN RES ALLOC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalCost" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Total Cost" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinRep" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Minerals" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypMin" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Types of Minerals" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DrillPer" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Drill Performed" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToMiningDetails" Relationship="ZGW_MINING_SP2_SRV.ToMiningDetailsAssociation" FromRole="FromRole_ToMiningDetailsAssociation" ToRole="ToRole_ToMiningDetailsAssociation"/>
+            </EntityType>
+            <EntityType Name="MININGDETAILS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LocId"/>
+                </Key>
+                <Property Name="LocId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Location ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Loc" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Resources" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Resources" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalCost" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Total Cost" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManDays" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="MAN DAYS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prob" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="PROBABILITY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToMining" Relationship="ZGW_MINING_SP2_SRV.ToMiningDetailsAssociation" FromRole="ToRole_ToMiningDetailsAssociation" ToRole="FromRole_ToMiningDetailsAssociation"/>
+            </EntityType>
+            <Association Name="ToMiningDetailsAssociation" sap:content-version="1">
+                <End Type="ZGW_MINING_SP2_SRV.MINING" Multiplicity="1" Role="FromRole_ToMiningDetailsAssociation"/>
+                <End Type="ZGW_MINING_SP2_SRV.MININGDETAILS" Multiplicity="*" Role="ToRole_ToMiningDetailsAssociation"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToMiningDetailsAssociation">
+                        <PropertyRef Name="LocId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToMiningDetailsAssociation">
+                        <PropertyRef Name="LocId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZGW_MINING_SP2_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MININGSet" EntityType="ZGW_MINING_SP2_SRV.MINING" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="MININGDETAILSSet" EntityType="ZGW_MINING_SP2_SRV.MININGDETAILS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="ToMiningDetailsAssociationSet" Association="ZGW_MINING_SP2_SRV.ToMiningDetailsAssociation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MININGSet" Role="FromRole_ToMiningDetailsAssociation"/>
+                    <End EntitySet="MININGDETAILSSet" Role="ToRole_ToMiningDetailsAssociation"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://zin-blr-srv1:8001/sap/opu/odata/sap/ZGW_MINING_SP2_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://zin-blr-srv1:8001/sap/opu/odata/sap/ZGW_MINING_SP2_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,5 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="app.mining.controller.Create">
+    <Page id="idCreatePage">
+        <Text id="idTempText" text="asf"></Text>
+    </Page>
+</mvc:View>

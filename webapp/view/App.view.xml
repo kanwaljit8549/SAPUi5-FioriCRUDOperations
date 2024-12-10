@@ -1,0 +1,72 @@
+<mvc:View controllerName="app.mining.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+      xmlns:form="sap.ui.layout.form">
+    <App id="idApp">
+        <!-- <pages>
+            <Page id="idAppPage">
+                <content>
+                    <IconTabBar id="idIconTabBar" >
+                        <items>
+                            <IconTabFilter id="idIconTabFilter" icon="sap-icon://bullet-text" text="Display">
+                                <Table id="idTable" items="{/MININGSet}" selectionChange="onSelectionChange" mode="SingleSelectMaster">
+                                <infoToolbar>
+                                    <OverflowToolbar id="idOverFlowToolbar">
+                                        <Label id="idDisplayTableLabel" text="Details of the Mining"></Label>
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <columns>
+                                    <Column id="idLocIdColumn" >
+                                        <Text id="idLocIdText" text="Location ID"></Text>
+                                    </Column>    
+                                    <Column id="idLocDesColumn" >
+                                        <Text id="idLocDesText" text="Location Description"></Text>
+                                    </Column>    
+                                    <Column id="idTotalCostColumn" >
+                                        <Text id="idTotalCostText" text="Total Cost"></Text>
+                                    </Column>    
+                                    <Column id="idMinRepColumn" >
+                                        <Text id="idMinRepText" text="Mineral Report"></Text>
+                                    </Column>    
+                                    <Column id="idTypMinColumn" >
+                                        <Text id="idTypMinText" text="Types of Minerals Found"></Text>
+                                    </Column>    
+                                    <Column id="idDrillPerColumn" >
+                                        <Text id="idDrillPerText" text="Drills Per Day"></Text>
+                                    </Column>    
+                                </columns>
+                                <items>
+                                    <ColumnListItem id="idColumnListItem">
+                                        <cells>
+                                            <Text id="idLocIdValueText" text="{LocId}" ></Text>
+                                            <Text id="idLocDesValueText" text="{LocDes}" ></Text>
+                                            <Text id="idTotalCostValueText" text="{TotalCost}" ></Text>
+                                            <Text id="idMinRepValueText" text="{MinRep}" ></Text>
+                                            <Text id="idTypMinValueText" text="{TypMin}" ></Text>
+                                            <Text id="idDrillPerValueText" text="{DrillPer}" ></Text>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            </IconTabFilter>
+                            <IconTabFilter id="id2IconTabFilter" icon="sap-icon://create" text="Create">
+                                <form:SimpleForm id="idSimpleForm" title="{i18n>FormTitle}">
+                                </form:SimpleForm>
+                            </IconTabFilter>
+                            <IconTabFilter id="id3IconTabFilter" icon="sap-icon://upload" text="Update">
+
+                            </IconTabFilter>
+                            <IconTabFilter id="id4IconTabFilter" icon="sap-icon://delete" text="Delete">
+
+                            </IconTabFilter>
+                        </items>
+                        <content>
+                            
+                        </content>
+                    </IconTabBar>
+                </content>
+            </Page>
+        </pages> -->
+    </App>
+</mvc:View>

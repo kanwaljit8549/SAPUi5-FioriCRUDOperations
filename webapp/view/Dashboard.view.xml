@@ -1,0 +1,122 @@
+<mvc:View controllerName="app.mining.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>DashboardTitle}">
+        <IconTabBar id="idIconTabBar" >
+                <items>
+                    <IconTabFilter id="idIconTabFilter" icon="sap-icon://bullet-text" text="Display">
+                        <Table id="idTable" items="{/MININGSet}" selectionChange="onSelectionChange" mode="SingleSelectMaster">
+                        <infoToolbar>
+                            <OverflowToolbar id="idOverFlowToolbar">
+                                <Label id="idDisplayTableLabel" text="Details of the Mining"></Label>
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <columns>
+                            <Column id="idLocIdColumn" >
+                                <Text id="idLocIdText" text="Location ID"></Text>
+                            </Column>    
+                            <Column id="idLocDesColumn" >
+                                <Text id="idLocDesText" text="Location Description"></Text>
+                            </Column>    
+                            <Column id="idMinResColumn" >
+                                <Text id="idMinResText" text="Mineral Resources"></Text>
+                            </Column>    
+                            <Column id="idTotalCostColumn" >
+                                <Text id="idTotalCostText" text="Total Cost"></Text>
+                            </Column>    
+                            <Column id="idMinRepColumn" >
+                                <Text id="idMinRepText" text="Mineral Report"></Text>
+                            </Column>    
+                            <Column id="idTypMinColumn" >
+                                <Text id="idTypMinText" text="Types of Minerals Found"></Text>
+                            </Column>    
+                            <Column id="idDrillPerColumn" >
+                                <Text id="idDrillPerText" text="Drills Per Day"></Text>
+                            </Column>    
+                        </columns>
+                        <items>
+                            <ColumnListItem id="idColumnListItem">
+                                <cells>
+                                    <Text id="idLocIdValueText" text="{LocId}" ></Text>
+                                    <Text id="idLocDesValueText" text="{LocDes}" ></Text>
+                                    <Text id="idMinResValueText" text="{MinRes}" ></Text>
+                                    <Text id="idTotalCostValueText" text="{TotalCost}" ></Text>
+                                    <Text id="idMinRepValueText" text="{MinRep}" ></Text>
+                                    <Text id="idTypMinValueText" text="{TypMin}" ></Text>
+                                    <Text id="idDrillPerValueText" text="{DrillPer}" ></Text>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    </IconTabFilter>
+                    <IconTabFilter id="id2IconTabFilter" icon="sap-icon://create" text="Create">
+                        <form:SimpleForm id="idCreateSimpleForm" title="{i18n>CreateFormTitle}">
+                            <form:toolbar>
+                                <Toolbar id="idCreateFormToolbar">
+                                    <Title id="idCreateFormToolbarTitle" text="Create Form"></Title>
+                                </Toolbar>
+                            </form:toolbar>
+                            <form:content>
+                                <Label id="idCreateLocIdLabel" text="Location ID"></Label>
+                                <Input id="idCreateLocIdInput" value=""></Input>
+                                <Label id="idCreateLocDesLabel" text="Location Description"></Label>
+                                <Input id="idCreateLocDesInput" value=""></Input>
+                                <Label id="idCreateMinResLabel" text="Mineral Resources"></Label>
+                                <Input id="idCreateMinResInput" value=""></Input>
+                                <Label id="idCreateTotalCostLabel" text="Total Cost"></Label>
+                                <Input id="idCreateTotalCostInput" value=""></Input>
+                                <Label id="idCreateMinRepLabel" text="Mineral Report"></Label>
+                                <Input id="idCreateMinRepInput" value=""></Input>
+                                <Label id="idCreateTypMinLabel" text="Types of Minerals Found"></Label>
+                                <Input id="idCreateTypMinInput" value=""></Input>
+                                <Label id="idCreateDrillPerLabel" text="Drills Per Day"></Label>
+                                <Input id="idCreateDrillPerInput" value=""></Input>
+                                <Button id="idCreateFormButton" press="onCreate" text="Submit"></Button>
+                            </form:content>
+                        </form:SimpleForm>
+                    </IconTabFilter>
+                    <IconTabFilter id="id3IconTabFilter" icon="sap-icon://upload" text="Update">
+                        <form:SimpleForm id="idUpdateSimpleForm" title="{i18n>UpdateFormTitle}">
+                            <form:toolbar>
+                                <Toolbar id="idUpdateFormToolbar">
+                                    <Title id="idUpdateFormToolbarTitle" text="Update Form"></Title>
+                                </Toolbar>
+                            </form:toolbar>
+                            <form:content>
+                                <Label id="idUpdateLocIdLabel" text="Location ID"></Label>
+                                <Input id="idUpdateLocIdInput" value=""></Input>
+                                <Label id="idUpdateLocDesLabel" text="Location Description"></Label>
+                                <Input id="idUpdateLocDesInput" value=""></Input>
+                                <Label id="idUpdateMinResLabel" text="Mineral Resources"></Label>
+                                <Input id="idUpdateMinResInput" value=""></Input>
+                                <Label id="idUpdateTotalCostLabel" text="Total Cost"></Label>
+                                <Input id="idUpdateTotalCostInput" value=""></Input>
+                                <Label id="idUpdateMinRepLabel" text="Mineral Report"></Label>
+                                <Input id="idUpdateMinRepInput" value=""></Input>
+                                <Label id="idUpdateTypMinLabel" text="Types of Minerals Found"></Label>
+                                <Input id="idUpdateTypMinInput" value=""></Input>
+                                <Label id="idUpdateDrillPerLabel" text="Drills Per Day"></Label>
+                                <Input id="idUpdateDrillPerInput" value=""></Input>
+                                <Button id="idUpdateeFormButton" press="onUpdate" text="Submit"></Button>
+                            </form:content>
+                        </form:SimpleForm>
+                    </IconTabFilter>
+                    <IconTabFilter id="id4IconTabFilter" icon="sap-icon://delete" text="Delete">
+                        <form:SimpleForm id="idDeleteSimpleForm" title="{i18n>CreateFormTitle}">
+                            <form:toolbar>
+                                <Toolbar id="idDeleteFormToolbar">
+                                    <Title id="idDeleteFormToolbarTitle" text="Delete Form"></Title>
+                                </Toolbar>
+                            </form:toolbar>
+                            <form:content>
+                                <Label id="idDeleteLocIdLabel" text="Location ID"></Label>
+                                <Input id="idDeleteLocIdInput" value=""></Input>
+                                <Button id="idDeleteFormButton" press="onDelete" text="Submit"></Button>
+                            </form:content>
+                        </form:SimpleForm>
+                    </IconTabFilter>
+                </items>
+        </IconTabBar>
+    </Page>
+</mvc:View>

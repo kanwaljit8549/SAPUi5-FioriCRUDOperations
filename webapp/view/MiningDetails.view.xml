@@ -1,0 +1,42 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="app.mining.controller.MiningDetails" >
+    <Page id="idMiningDetailsPage" title="">
+        <Table id="idMiningDetailsTable" items="{MiningDetailsModel>/results}">
+           <columns>
+                <Column id="id2Column" >
+                    <Text id="idLocId2Text" text="Location ID"></Text>
+                </Column>    
+                <Column id="idLocColumn" >
+                    <Text id="idLocDes2Text" text="Location"></Text>
+                </Column>    
+                <Column id="idResourcesColumn" >
+                    <Text id="idResourcesText" text="Resources"></Text>
+                </Column>    
+                <Column id="idTotalCost2Column" >
+                    <Text id="idTotalCost2Text" text="Total Cost"></Text>
+                </Column>    
+                <Column id="idManDaysColumn" >
+                    <Text id="idManDaysText" text="Man Days"></Text>
+                </Column>    
+                <Column id="idProbabilityColumn" >
+                    <Text id="idProbabilityText" text="Probability"></Text>
+                </Column>    
+                </columns>
+                <items>
+                    <ColumnListItem id="idColumnList2Item">
+                        <cells>
+                            <Text id="idLocId2ValueText" text="{MiningDetailsModel>LocId}" ></Text>
+                            <Text id="idLocValueText" text="{MiningDetailsModel>Loc}" ></Text>
+                            <Text id="idResourcesValueText" text="{MiningDetailsModel>Resources}" ></Text>
+                            <Text id="idTotalCost2ValueText" text="{MiningDetailsModel>TotalCost}" ></Text>
+                            <Text id="idManDaysValueText" text="{MiningDetailsModel>ManDays}" ></Text>
+                            <Text id="idProbabilityValueText" text="{MiningDetailsModel>Prob}" ></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+        </Table>
+    
+    </Page>
+
+</mvc:View>
